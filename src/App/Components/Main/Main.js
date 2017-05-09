@@ -14,7 +14,7 @@ export default class Main extends Component {
                     'vehicles':'http://swapi.co/api/vehicles/'
                    }
     this.state = {
-      selectedButton: 'vehicles',
+      selectedButton: 'people',
       cards: [],
       counter: 0,
     }
@@ -34,7 +34,7 @@ export default class Main extends Component {
         cards: cleanPeopleData(data)
       })
     }
-    if(this.state.selectedButton === 'places'){
+    if(this.state.selectedButton === 'planets'){
       this.setState({
         cards: cleanPlanetsData(data)
       })
