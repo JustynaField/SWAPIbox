@@ -40,7 +40,7 @@ export default class Main extends Component {
         <Button buttonType={'people'}/>
         <Button buttonType={'places'}/>
         <Button buttonType={'vehicles'}/>
-        <CardGrid />
+        <CardGrid dataSet={this.state.cards}/>
       </div>
     )
   }
