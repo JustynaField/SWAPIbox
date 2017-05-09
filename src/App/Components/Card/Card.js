@@ -1,7 +1,7 @@
 import React from 'react'
 
-export const Card = () => {
+export const Card = ({name}) => {
   return (
-    <div>Card Info!</div>
+    <div>{name}</div>
   )
 }
