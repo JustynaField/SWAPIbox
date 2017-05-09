@@ -19,13 +19,12 @@ class App extends Component {
     fetch(openingCrawl)
       .then(response => response.json())
       .then(j => {
-        // console.log(j)
         this.resetCrawl(j)
       })
-  }
+    }
 
-  resetCrawl(crawlData) {
-    this.setState({
+    resetCrawl(crawlData) {
+      this.setState({
       openingCrawl: cleanCrawlData(crawlData)
     })
   }
