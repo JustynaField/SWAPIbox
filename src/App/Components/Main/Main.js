@@ -3,47 +3,44 @@ import './Main.css'
 import { Button } from '../Button/Button'
 import { CardGrid } from '../CardGrid/CardGrid'
 import { cleanPeopleData } from '../../cleanPeopleData'
-// import { cleanPlanetsData } from '../../cleanPlanetsData'
-// import { cleanVehiclesData } from '../../cleanVehiclesData'
+import { cleanPlanetsData } from '../../cleanPlanetsData'
+import { cleanVehiclesData } from '../../cleanVehiclesData'
 
 export default class Main extends Component {
   constructor() {
     super()
-    this.apiKeys = {'people': 'http://swapi.co/api/people/',
-                    'planets': 'http://swapi.co/api/planets/',
-                    'vehicles':'http://swapi.co/api/vehicles/'
-                   }
     this.state = {
       selectedButton: 'people',
       dataSet: [],
       counter: 0,
+      errorMsg: ''
     }
   }
 
   componentDidMount() {
-    fetch(this.apiKeys[this.state.selectedButton])
+    fetch(`http://swapi.co/api/${this.state.selectedButton}/`)
       .then(response => response.json())
-      .then(data => {
-        this.resetData(data)
-    })
+      .then(data => {this.resetData(data)})
+      .catch((err) => this.setState({errorMsg: 'Did not catch that'}))
   }
 
   resetData(data) {
-    // debugger;
-    cleanPeopleData(data).then((returnedData) => this.setState({ dataSet: returnedData }))
-
-      // console.log(this.state.dataSet)
-    // }
-    // if(this.state.selectedButton === 'planets'){
-    //   this.setState({
-    //     dataSet: data
-    //   })
-    // }
-    // if(this.state.selectedButton === 'vehicles'){
-    //   this.setState({
-    //     dataSet: data
-    //   })
-    // }
+    if(this.state.selectedButton === 'people'){
+      debugger;
+     return cleanPeopleData(data)
+      .then((returnedData) => this.setState({ dataSet: returnedData }))
+      .catch(() => {console.log('drats!')})
+    }
+    if(this.state.selectedButton === 'planets'){
+     cleanPlanetsData(data)
+       .then((returnedData) => this.setState({ dataSet: returnedData }))
+       .catch(() => {console.log('shucks!')})
+    }
+    if(this.state.selectedButton === 'vehicles'){
+     cleanVehiclesData(data)
+      .then((returnedData) => this.setState({dataSet: returnedData }))
+      .catch((err) => {console.log('bummer!')})
+    }
   }
 
   render() {

@@ -3,7 +3,6 @@ export const cleanPeopleData = (data) => {
 const characterArray = []
 
   const finalCleanData = (rawDataArray) => {
-    // debugger;
     return rawDataArray.map((character) => {
         return {
           name: character.name,
@@ -50,17 +49,20 @@ const characterArray = []
     return result.map((population, i) => {
       return Object.assign(data.results[i], { population: population })
     })
-  }).then(() => {})
+  }).then(() => {console.log('success!')})
+    .catch(() => {throw new Error('dern!')})
 
   Promise.all(speciesArray).then((result) => {
     return result.map((species, i) => {
       return Object.assign(data.results[i], { species: species })
     })
-  }).then(() => {})
+  }).then(() => {console.log('success!')})
+    .catch(() => {throw new Error('dang!')})
   //
   Promise.all(homeworldArray).then((result) => {
     return result.map((homeworld, i) => {
       return characterArray.push(Object.assign(data.results[i], { homeworld: homeworld }))
     })
   }).then(() => {return finalCleanData(characterArray)})
+    .catch(() => {throw new Error('dang!')})
 }
