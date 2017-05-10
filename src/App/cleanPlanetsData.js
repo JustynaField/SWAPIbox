@@ -1,4 +1,4 @@
-import { cleanPeopleData } from './cleanPeopleData'
+// import { cleanPeopleData } from './cleanPeopleData'
 
 
 // export const cleanPlanetsData = (data) => {
