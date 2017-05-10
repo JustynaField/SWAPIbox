@@ -2,16 +2,16 @@ export const cleanPeopleData = (data) => {
 
 const characterArray = []
 
-  const finalCleanData = (rawDataArray) => {
-    return rawDataArray.map((character) => {
-        return {
-          name: character.name,
-          homeworld: character.homeworld,
-          species: character.species,
-          population: character.population,
-        }
-      })
-  }
+  // const finalCleanData = (rawDataArray) => {
+  //   return rawDataArray.map((character) => {
+  //       return {
+  //         name: character.name,
+  //         homeworld: character.homeworld,
+  //         species: character.species,
+  //         population: character.population,
+  //       }
+  //     })
+  // }
 
   const speciesData = (speciesData) => {
     return fetch(speciesData)
@@ -45,24 +45,25 @@ const characterArray = []
 
 
 
-  Promise.all(populationArray).then((result) => {
+  const p1 = Promise.all(populationArray).then((result) => {
     return result.map((population, i) => {
       return Object.assign(data.results[i], { population: population })
     })
-  }).then(() => {console.log('success!')})
-    .catch(() => {throw new Error('dern!')})
+  })
 
-  Promise.all(speciesArray).then((result) => {
+  const p2 = Promise.all(speciesArray).then((result) => {
     return result.map((species, i) => {
       return Object.assign(data.results[i], { species: species })
     })
-  }).then(() => {console.log('success!')})
-    .catch(() => {throw new Error('dang!')})
+  })
   //
-  Promise.all(homeworldArray).then((result) => {
+  const p3 = Promise.all(homeworldArray).then((result) => {
     return result.map((homeworld, i) => {
-      return characterArray.push(Object.assign(data.results[i], { homeworld: homeworld }))
+      return Object.assign(data.results[i], { homeworld: homeworld })
     })
-  }).then(() => {return finalCleanData(characterArray)})
-    .catch(() => {throw new Error('dang!')})
+  })
+
+  return Promise.all([p1, p2, p3]).then((promiseArray) => {
+    return data.results
+  })
 }
