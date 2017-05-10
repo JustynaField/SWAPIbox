@@ -63,7 +63,7 @@ const characterArray = []
     })
   })
 
-  return Promise.all([p1, p2, p3]).then((promiseArray) => {
+  return Promise.all([p1, p2, p3]).then(() => {
     return data.results
   })
 }
