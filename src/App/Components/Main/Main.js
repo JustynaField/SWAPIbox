@@ -3,8 +3,8 @@ import './Main.css'
 import { Button } from '../Button/Button'
 import { CardGrid } from '../CardGrid/CardGrid'
 import { cleanPeopleData } from '../../cleanPeopleData'
-import { cleanPlanetsData } from '../../cleanPlanetsData'
-import { cleanVehiclesData } from '../../cleanVehiclesData'
+// import { cleanPlanetsData } from '../../cleanPlanetsData'
+// import { cleanVehiclesData } from '../../cleanVehiclesData'
 
 export default class Main extends Component {
   constructor() {
@@ -15,7 +15,7 @@ export default class Main extends Component {
                    }
     this.state = {
       selectedButton: 'people',
-      cards: [],
+      dataSet: [],
       counter: 0,
     }
   }
@@ -29,21 +29,21 @@ export default class Main extends Component {
   }
 
   resetData(data) {
-    if(this.state.selectedButton === 'people'){
-      this.setState({
-        cards: cleanPeopleData(data)
-      })
-    }
-    if(this.state.selectedButton === 'planets'){
-      this.setState({
-        cards: cleanPlanetsData(data)
-      })
-    }
-    if(this.state.selectedButton === 'vehicles'){
-      this.setState({
-        cards: cleanVehiclesData(data)
-      })
-    }
+    // debugger;
+    cleanPeopleData(data).then((returnedData) => this.setState({ dataSet: returnedData }))
+
+      // console.log(this.state.dataSet)
+    // }
+    // if(this.state.selectedButton === 'planets'){
+    //   this.setState({
+    //     dataSet: data
+    //   })
+    // }
+    // if(this.state.selectedButton === 'vehicles'){
+    //   this.setState({
+    //     dataSet: data
+    //   })
+    // }
   }
 
   render() {
@@ -56,7 +56,7 @@ export default class Main extends Component {
         <Button buttonType={'people'}/>
         <Button buttonType={'planets'}/>
         <Button buttonType={'vehicles'}/>
-        <CardGrid dataSet={this.state.cards}/>
+        <CardGrid dataSet={this.state.dataSet}/>
       </div>
     )
   }
