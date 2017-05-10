@@ -66,7 +66,7 @@ export default class Main extends Component {
       return (
         <div className="main-main loading">
           <header>
-            <h1>SWAPI-Box</h1>
+            <h1>STAR WARS</h1>
           </header>
           <Button buttonType={'favorites'} counter={this.state.counter} onClick={this.toggleSelectCards.bind(this)}/>
           <Button buttonType={'people'} handleClick={this.toggleSelectCards.bind(this)}/>
@@ -79,7 +79,8 @@ export default class Main extends Component {
     return (
       <div className="main-main">
         <header>
-          <h1>SWAPI-Box</h1>
+          <h1>STAR WARS</h1>
+
         </header>
         <Button buttonType={'favorites'} counter={this.state.counter} onClick={this.toggleSelectCards.bind(this)}/>
         <Button buttonType={'people'} handleClick={this.toggleSelectCards.bind(this)}/>
