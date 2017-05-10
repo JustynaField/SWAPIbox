@@ -5,6 +5,11 @@ import { CardGrid } from '../CardGrid/CardGrid'
 import { cleanPeopleData } from '../../cleanPeopleData'
 import { cleanPlanetsData } from '../../cleanPlanetsData'
 import { cleanVehiclesData } from '../../cleanVehiclesData'
+import peopleScrubber from '../PeopleCard/CallingPeople'
+// import peoplestub from '../../stubs/people-stub.js'
+// import planetstub from '../../stubs/planet-stub.js'
+// import vehiclestub from '../../stubs/vehicle-stub.js'
+
 
 export default class Main extends Component {
   constructor() {
@@ -18,9 +23,21 @@ export default class Main extends Component {
   }
 
   componentDidMount() {
+    peopleScrubber().then(e => {
+
+      cleanPeopleData(e[0]).then(call => {
+      console.log(call)
+    })
+  })
     this.fetchData()
   }
 
+
+  // componentDidUpdate(prevState) {
+  //   if (prevState.selectedButton !== this.state.selectedButton){
+  //     this.fetchData()
+  //   }
+  // }
   // componentDidMount(prevState) {
   //   if (prevState.selectedButton !== this.state.selectedButton){
   //     this.fetchData()
@@ -41,6 +58,7 @@ export default class Main extends Component {
       .catch(() => {console.log('drats!')})
     }
     if(this.state.selectedButton === 'planets'){
+      console.log("hello! cliked")
      cleanPlanetsData(data)
        .then((returnedData) => this.setState({ dataSet: returnedData }))
        .catch(() => {console.log('shucks!')})
