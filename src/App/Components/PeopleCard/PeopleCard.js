@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const PeopleCard = ({props}) => {
+export const PeopleCard = ({name, homeworld, species, population}) => {
   return (
     <div className='card people'>
       <h3>{name}</h3>

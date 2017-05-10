@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const PlanetCard = ({props}) => {
+export const PlanetCard = ({name, terrain, population, climate, residents}) => {
   return (
     <div className="card planet">
       <h3>{name}</h3>
