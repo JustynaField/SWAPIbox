@@ -36,7 +36,7 @@ export default class Main extends Component {
 
   resetData(data) {
     if(this.state.selectedButton === 'people'){
-     return cleanPeopleData(data)
+    cleanPeopleData(data)
       .then((returnedData) => this.setState({ dataSet: returnedData }))
       .catch(() => {console.log('drats!')})
     }
@@ -57,8 +57,7 @@ export default class Main extends Component {
 
   toggleSelectCards(button) {
     return this.setState({selectedButton: button})
-      .then(this.fetchData())
-
+    this.fetchData()
   }
 
   render() {
