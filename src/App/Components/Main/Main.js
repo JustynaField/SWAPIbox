@@ -46,8 +46,8 @@ export default class Main extends Component {
        .catch(() => {console.log('shucks!')})
     }
     if(this.state.selectedButton === 'vehicles'){
-      console.log('vehicles!')
-     cleanVehiclesData(data)
+      cleanVehiclesData(data)
+    //  this.setState({ dataSet: cleanVehiclesData(data) })
       .then((returnedData) => this.setState({dataSet: returnedData }))
       .catch((err) => {console.log('bummer!')})
     }

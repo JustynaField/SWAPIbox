@@ -1,7 +1,5 @@
 export const cleanPeopleData = (data) => {
 
-const characterArray = []
-
   // const finalCleanData = (rawDataArray) => {
   //   return rawDataArray.map((character) => {
   //       return {
