@@ -26,9 +26,8 @@ export default class Main extends Component {
 
   resetData(data) {
     if(this.state.selectedButton === 'people'){
-      debugger;
      return cleanPeopleData(data)
-      .then((returnedData) => this.setState({ dataSet: returnedData }))
+      .then((returnedData) => { console.log(returnedData, 'done'); this.setState({ dataSet: returnedData }) })
       .catch(() => {console.log('drats!')})
     }
     if(this.state.selectedButton === 'planets'){
@@ -44,6 +43,7 @@ export default class Main extends Component {
   }
 
   render() {
+
     return (
       <div className="main-main">
         <header>
@@ -53,7 +53,7 @@ export default class Main extends Component {
         <Button buttonType={'people'}/>
         <Button buttonType={'planets'}/>
         <Button buttonType={'vehicles'}/>
-        <CardGrid dataSet={this.state.dataSet}/>
+        <CardGrid dataSet={this.state.dataSet} cardType={this.state.selectedButton}/>
       </div>
     )
   }
