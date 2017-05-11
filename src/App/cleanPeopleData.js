@@ -1,3 +1,5 @@
+
+
 export const cleanPeopleData = (data) => {
 
   // const finalCleanData = (rawDataArray) => {
@@ -54,7 +56,7 @@ export const cleanPeopleData = (data) => {
       return Object.assign(data.results[i], { species: species })
     })
   })
-  //
+
   const p3 = Promise.all(homeworldArray).then((result) => {
     return result.map((homeworld, i) => {
       return Object.assign(data.results[i], { homeworld: homeworld })
