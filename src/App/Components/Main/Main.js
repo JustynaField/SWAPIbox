@@ -31,41 +31,25 @@ export default class Main extends Component {
 
     peopleCall()
     .then(e => {cleanPeopleData(e[0])
-    .then(call => {this.setState({
+    .then(call => {console.log(call);this.setState({
                    people: call
                     })
-    })
-  })
+     })
+   })
   planetsCall()
-    .then(e => {console.log(e[0]);cleanPlanetsData(e[0])
-    .then(call => { console.log(call);this.setState({
+    .then(e => {cleanPlanetsData(e[0])
+    .then(call => { this.setState({
                   planets: call
                   })
     })
-    })
+  })
   vehiclesCall()
       .then(e => this.setState({vehicles: e[0]}))
-
-
-
 }
 
 
 
-    // planetScrubber().then(e => {
-    //
-    //   cleanPeopleData(e).then()
-    // })
-  // componentDidUpdate(prevState) {
-  //   if (prevState.selectedButton !== this.state.selectedButton){
-  //     this.fetchData()
-  //   }
-  // }
-  // componentDidMount(prevState) {
-  //   if (prevState.selectedButton !== this.state.selectedButton){
-  //     this.fetchData()
-  //   }
-  // }
+
 
 
   saveFavorites(name) {
@@ -81,43 +65,30 @@ export default class Main extends Component {
     }
   }
 
-
-
-  fetchData() {
-    fetch(`http://swapi.co/api/${this.state.selectedButton}/`)
-      .then(response => response.json())
-      .then(data => {this.resetData(data)})
-      .catch((err) => console.log(err))
+  toggleSelectCards(button) {
+    this.setState({
+                  selectedButton : button,
+                  })
   }
 
-
-  // resetData(data) {
-  //   if(this.state.selectedButton === 'people'){
-  //   cleanPeopleData(data)
-  //     .then((returnedData) => this.setState({ dataSet: returnedData }))
-  //     .catch(() => {console.log('drats!')})
-  //   }
-  //   if(this.state.selectedButton === 'planets'){
-  //     console.log("hello! cliked")
-  //    cleanPlanetsData(data)
-  //      .then((returnedData) => this.setState({ dataSet: returnedData }))
-  //      .catch(() => {console.log('shucks!')})
-  //   }
-  //   if(this.state.selectedButton === 'vehicles'){
-  //     cleanVehiclesData(data)
-  //   //  this.setState({ dataSet: cleanVehiclesData(data) })
-  //     .then((returnedData) => this.setState({dataSet: returnedData }))
-  //     .catch((err) => {console.log('bummer!')})
-  //   }
-  // }
-
-
-
-  toggleSelectCards(button) {
+  renderCardGrid(){
+    var dataSet = this.state.selectedButton
+    console.log(dataSet)
+    { if(!this.state.people.length){
+      return (
+        <div className="loading-msg">Loading!</div>
+      )
+    } else {
+      return (
+        <CardGrid dataSet={this.state[dataSet]}
+          cardType={this.state.selectedButton}
+          handleFavorites={this.saveFavorites.bind(this)}
+        />
+      )
+    }}
   }
 
   render() {
-    if(!this.state.people.length){
       return (
         <div className="main-main loading">
           <header>
@@ -127,29 +98,9 @@ export default class Main extends Component {
           <Button buttonType={'people'} handleClick={this.toggleSelectCards.bind(this)}/>
           <Button buttonType={'planets'} handleClick={this.toggleSelectCards.bind(this)}/>
           <Button buttonType={'vehicles'} handleClick={this.toggleSelectCards.bind(this)}/>
-          <div className="loading-msg">Loading!</div>
+          {this.renderCardGrid()}
+
         </div>
       )
     }
-    return (
-      <div className="main-main">
-        <header>
-          <h1>STAR WARS</h1>
-
-        </header>
-        <Button buttonType={'favorites'} counter={this.state.counter} onClick={this.toggleSelectCards.bind(this)}/>
-        <Button buttonType={'people'} handleClick={this.toggleSelectCards.bind(this)}/>
-        <Button buttonType={'planets'} handleClick={this.toggleSelectCards.bind(this)}/>
-        <Button buttonType={'vehicles'} handleClick={this.toggleSelectCards.bind(this)}/>
-
-        <CardGrid dataSet={this.state.dataSet}
-                  cardType={this.state.selectedButton}
-                  handleFavorites={this.saveFavorites.bind(this)}
-        />
-
-      </div>
-    )
-  }
-
-
 }
