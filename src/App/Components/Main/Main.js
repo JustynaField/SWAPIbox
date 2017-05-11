@@ -18,7 +18,7 @@ export default class Main extends Component {
     this.state = {
       selectedButton: 'people',
       people: [],
-      planets: {},
+      planets: [],
       vehicles: [],
       counter: 0,
       errorMsg: '',
@@ -31,18 +31,18 @@ export default class Main extends Component {
 
     peopleCall()
     .then(e => {cleanPeopleData(e[0])
-    .then(call => {console.log(call);this.setState({
+    .then(call => {this.setState({
                    people: call
                     })
      })
    })
   planetsCall()
-    .then(e => {cleanPlanetsData(e[0])
-    .then(call => { this.setState({
-                  planets: call
-                  })
-    })
+    .then(e => { let planets = cleanPlanetsData(e[0])
+    this.setState({planets: planets})
   })
+
+
+
   vehiclesCall()
       .then(e => this.setState({vehicles: e[0]}))
 }

@@ -21,8 +21,11 @@ export const CardGrid = ({ dataSet, cardType, handleFavorites }) => {
     })
   }
   if(cardType === 'planets'){
-    cardArray = dataSet.map(card => {
-      return <PlanetCard name={card.name} terrain={card.terrain} population={card.population} climate={card.climate} residents={card.residents} />
+    cardArray = Object.keys(dataSet).map(card => {
+      if(!dataSet[card].residents.length){
+        dataSet[card].residents = 'A lonely world'
+      }
+      return <PlanetCard name={dataSet[card].name} terrain={dataSet[card].terrain} population={dataSet[card].population} climate={dataSet[card].climate} residents={dataSet[card].residents} />
     })
   }
 

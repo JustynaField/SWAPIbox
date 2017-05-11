@@ -1,11 +1,11 @@
 export const cleanPlanetsData = (data) => {
 
-   return data.results.reduce((accu, planet) => {
+   const planets = data.results.reduce((accu, planet) => {
     if(!accu[planet.name]){
       accu[planet.name] = {}
       accu[planet.name].name = planet.name
       accu[planet.name].terrain = planet.terrain
-      accu[planet.name].populataion = planet.population
+      accu[planet.name].population = planet.population
       accu[planet.name].climate = planet.climate
       accu[planet.name].residents = []
 
@@ -20,4 +20,6 @@ export const cleanPlanetsData = (data) => {
     }
     return accu
   }, {})
+  console.log(planets)
+  return planets
 }
