@@ -45,7 +45,7 @@ export default class Main extends Component {
       })
     }
 
-  saveFavorites(name) {
+  saveFavorites(name, e) {
 
     let temp = this.state.favorites;
     let place = temp.indexOf(name)
@@ -58,8 +58,17 @@ export default class Main extends Component {
       this.setState({favorites: temp})
       this.setState({counter: this.state.counter - 1})
     }
+
+
+
+    // if(e.currentTarget.className === 'like-btn favored') {
+    //   e.currentTarget.className = 'like-btn'
+    // } else {
+    //   e.currentTarget.className = 'like-btn favored'
+    // }
     console.log(this.state.favorites)
   }
+
 
   toggleSelectCards(button) {
     this.setState({
@@ -77,7 +86,7 @@ export default class Main extends Component {
       return (
         <CardGrid dataSet={this.state[dataSet]}
           cardType={this.state.selectedButton}
-          handleFavorites={this.saveFavorites.bind(this)}
+          handleFavorites={this.saveFavorites.bind(this)} favorites={this.state.favorites}
         />
       )
     }}

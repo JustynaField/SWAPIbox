@@ -41,12 +41,12 @@ div {
   text-align: center;
 }
 
-.select-btn:active {
+.select-btn:hover {
   background-color: #75afab;
   border: solid 2px #75afab;
 }
 
-.select-btn:hover {
+.select-btn:focus {
   background-color: #75afab;
   border: solid 2px #75afab;
 }
