@@ -1,6 +1,6 @@
 .fav-btn {
   position:absolute;
-  top: 40px;
+  top: 35px;
   right: 20px;
   width: 100px;
   height: 27px;
@@ -10,6 +10,7 @@
   background-color: #dae5e9;
   border: none;
   padding-left: 7px;
+  outline: none;
 }
 
 .fav-btn:hover {
