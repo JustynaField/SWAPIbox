@@ -1,4 +1,4 @@
-{
+module.exports = {
     "count": 87,
     "next": "http://swapi.co/api/people/?format=api&page=2",
     "previous": null,
@@ -20,9 +20,9 @@
                 "http://swapi.co/api/films/1/",
                 "http://swapi.co/api/films/7/"
             ],
-            "species": [
-                "http://swapi.co/api/species/1/"
-            ],
+            // "species": [
+            //     "http://swapi.co/api/species/1/"
+            // ],
             "vehicles": [
                 "http://swapi.co/api/vehicles/14/",
                 "http://swapi.co/api/vehicles/30/"
@@ -53,9 +53,9 @@
                 "http://swapi.co/api/films/3/",
                 "http://swapi.co/api/films/1/"
             ],
-            "species": [
-                "http://swapi.co/api/species/2/"
-            ],
+            // "species": [
+            //     "http://swapi.co/api/species/2/"
+            // ],
             "vehicles": [],
             "starships": [],
             "created": "2014-12-10T15:10:51.357000Z",
@@ -81,9 +81,9 @@
                 "http://swapi.co/api/films/1/",
                 "http://swapi.co/api/films/7/"
             ],
-            "species": [
-                "http://swapi.co/api/species/2/"
-            ],
+            // "species": [
+            //     "http://swapi.co/api/species/2/"
+            // ],
             "vehicles": [],
             "starships": [],
             "created": "2014-12-10T15:11:50.376000Z",
@@ -106,9 +106,9 @@
                 "http://swapi.co/api/films/3/",
                 "http://swapi.co/api/films/1/"
             ],
-            "species": [
-                "http://swapi.co/api/species/1/"
-            ],
+            // "species": [
+            //     "http://swapi.co/api/species/1/"
+            // ],
             "vehicles": [],
             "starships": [
                 "http://swapi.co/api/starships/13/"
@@ -134,9 +134,9 @@
                 "http://swapi.co/api/films/1/",
                 "http://swapi.co/api/films/7/"
             ],
-            "species": [
-                "http://swapi.co/api/species/1/"
-            ],
+            // // "species": [
+            //     "http://swapi.co/api/species/1/"
+            // ],
             "vehicles": [
                 "http://swapi.co/api/vehicles/30/"
             ],
@@ -160,9 +160,9 @@
                 "http://swapi.co/api/films/6/",
                 "http://swapi.co/api/films/1/"
             ],
-            "species": [
-                "http://swapi.co/api/species/1/"
-            ],
+            // "species": [
+            //     "http://swapi.co/api/species/1/"
+            // ],
             "vehicles": [],
             "starships": [],
             "created": "2014-12-10T15:52:14.024000Z",
@@ -184,9 +184,9 @@
                 "http://swapi.co/api/films/6/",
                 "http://swapi.co/api/films/1/"
             ],
-            "species": [
-                "http://swapi.co/api/species/1/"
-            ],
+            // "species": [
+            //     "http://swapi.co/api/species/1/"
+            // ],
             "vehicles": [],
             "starships": [],
             "created": "2014-12-10T15:53:41.121000Z",
@@ -206,9 +206,9 @@
             "films": [
                 "http://swapi.co/api/films/1/"
             ],
-            "species": [
-                "http://swapi.co/api/species/2/"
-            ],
+            // "species": [
+            //     "http://swapi.co/api/species/2/"
+            // ],
             "vehicles": [],
             "starships": [],
             "created": "2014-12-10T15:57:50.959000Z",
@@ -228,9 +228,9 @@
             "films": [
                 "http://swapi.co/api/films/1/"
             ],
-            "species": [
-                "http://swapi.co/api/species/1/"
-            ],
+            // "species": [
+            //     "http://swapi.co/api/species/1/"
+            // ],
             "vehicles": [],
             "starships": [
                 "http://swapi.co/api/starships/12/"
@@ -257,9 +257,9 @@
                 "http://swapi.co/api/films/3/",
                 "http://swapi.co/api/films/1/"
             ],
-            "species": [
-                "http://swapi.co/api/species/1/"
-            ],
+            // "species": [
+            //     "http://swapi.co/api/species/1/"
+            // ],
             "vehicles": [
                 "http://swapi.co/api/vehicles/38/"
             ],

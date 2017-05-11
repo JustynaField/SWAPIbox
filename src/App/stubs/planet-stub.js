@@ -1,4 +1,4 @@
-{
+module.exports = { 
     "count": 61,
     "next": "http://swapi.co/api/planets/?format=api&page=2",
     "previous": null,

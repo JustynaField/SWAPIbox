@@ -5,13 +5,16 @@ import fetchMock from 'fetch-mock';
 import CrawlStub from './stubs/crawl-stub'
 import { cleanCrawlData } from './Components/OpeningCrawl/cleanCrawlData'
 import { shallow, mount } from 'enzyme'
-import {resolveAfter2Seconds } from './stubs/test-helper'
+import {resolveAfter2Seconds, mockFetchCalls } from './stubs/test-helper'
 
 describe('App', () => {
   const cleanCrawl = cleanCrawlData(CrawlStub)
 
   afterEach(() => {
-    expect(fetchMock.calls().unmatched).toEqual([]);
+    if (fetchMock.calls().unmatched.length) {
+      console.warn(fetchMock.calls().unmatched)
+    }
+    // expect(fetchMock.calls().unmatched).toEqual([]);
     fetchMock.restore()
   })
 
@@ -20,11 +23,12 @@ describe('App', () => {
     ReactDOM.render(<App />, div);
   });
 
-  it.skip('fetches the movie crawl', async () => {
+  it('fetches the movie crawl', async () => {
     fetchMock.get('http://swapi.co/api/films/1/?format=json', {
       status: 200,
       body: CrawlStub
     })
+    mockFetchCalls()
 
     const wrapper = mount(< App />)
     await resolveAfter2Seconds()
