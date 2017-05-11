@@ -1,9 +1,27 @@
+.fav-btn {
+  position:absolute;
+  top: 40px;
+  right: 20px;
+  width: 100px;
+  height: 27px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #dae5e9;
+  border: none;
+  padding-left: 7px;
+}
+
+.fav-btn:hover {
+  background-color: #75afab;
+}
+
 .fav-counter {
-  background-color: red;
+  padding-left: 10px;
+  color: #a81f1f;
 }
 
 div {
-
   text-align: center;
   display: inline-block;
   margin: 8px;
@@ -18,4 +36,11 @@ div {
   width: 90px;
   font-weight: bold;
   font-size: 14px;
+  outline: none;
+  text-align: center;
+}
+
+.select-btn:hover {
+  background-color: #75afab;
+  border: solid 2px #75afab;
 }

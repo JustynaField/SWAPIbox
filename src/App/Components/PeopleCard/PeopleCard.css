@@ -1,9 +1,10 @@
 .card {
-  width: 200px;
+  width: 250px;
   display: inline-block;
   margin: 15px;
   background-color: #dae5e9;
   color: #30394a;
+  padding: 8px;
 }
 
 .like-btn {
@@ -13,12 +14,16 @@
   background-color: #9aa6ba;
   border: none;
   outline: none;
+  letter-spacing: .15em;
+  /*color: #f4f2f2;*/
 }
 
 .like-btn:hover {
-  background-color: #f4e784;
+  background-color: #eae1bb;
+  border: 1px solid  #9aa6ba;
 }
 
 .like-btn:active {
-  background-color: #f4e784;
+  background-color: #eae1bb;
+  border: 1px solid  #9aa6ba;
 }

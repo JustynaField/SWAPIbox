@@ -8,7 +8,7 @@ export const PlanetCard = ({name, terrain, population, climate, residents}) => {
       <h5>Population: {population}</h5>
       <h5>Climate: {climate}</h5>
       <h5>Residents: {residents}</h5>
-      <button>Like</button>
+      <button className="like-btn">Favorite</button>
     </div>
   )
 }

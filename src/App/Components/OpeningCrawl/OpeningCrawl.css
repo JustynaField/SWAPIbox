@@ -20,3 +20,11 @@ p {
   letter-spacing: 0.1;
   margin: 0
 }
+
+
+@media screen and (max-width: 630px){
+  .crawl-main {
+
+  }
+
+}
