@@ -8,7 +8,6 @@ export const OpeningCrawl = ({crawlInfo}) => {
       <p className="main-text crawl">{crawlInfo.crawl}</p>
       <p className="title">{crawlInfo.title}</p>
       <p className="title release">{crawlInfo.release}</p>
-
     </div>
   )
 }

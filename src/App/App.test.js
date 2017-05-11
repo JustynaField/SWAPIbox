@@ -27,11 +27,9 @@ describe('App', () => {
     })
 
     const wrapper = mount(< App />)
-
     await resolveAfter2Seconds()
 
     expect(wrapper.state('openingCrawl')).toEqual(cleanCrawl);
-
   })
 
 })
