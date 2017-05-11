@@ -3,11 +3,11 @@ import React from 'react'
 export const PlanetCard = ({name, terrain, population, climate, residents}) => {
   return (
     <div className="card planet">
-      <h3>{name}</h3>
-      <h5>Terrain: {terrain}</h5>
-      <h5>Population: {population}</h5>
-      <h5>Climate: {climate}</h5>
-      <h5>Residents: {residents}</h5>
+      <h3 className="name-field">{name}</h3>
+      <h5 className="terrain-field">Terrain: {terrain}</h5>
+      <h5 className="population-field">Population: {population}</h5>
+      <h5 className="climate-field">Climate: {climate}</h5>
+      <h5 className="residents-field">Residents: {residents}</h5>
       <button className="like-btn">Favorite</button>
     </div>
   )
