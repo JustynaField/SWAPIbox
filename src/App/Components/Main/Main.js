@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import './Main.css'
 import { Button } from '../Button/Button'
 import { CardGrid } from '../CardGrid/CardGrid'
-import { cleanPeopleData } from '../../cleanPeopleData'
-import { cleanPlanetsData } from '../../cleanPlanetsData'
+import { cleanPeopleData } from '../PeopleCard/cleanPeopleData'
+import { cleanPlanetsData } from '../PlanetCard/cleanPlanetsData'
 import peopleCall from '../PeopleCard/CallingPeople'
 import planetsCall from '../PlanetCard/CallingPlanets'
 import vehiclesCall from '../VehicleCard/CallingVehicles'
-import { cleanVehiclesData } from '../../cleanVehiclesData'
+import { cleanVehiclesData } from '../VehicleCard/cleanVehiclesData'
 
 
 
