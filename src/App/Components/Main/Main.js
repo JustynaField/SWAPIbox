@@ -35,22 +35,16 @@ export default class Main extends Component {
                    people: call
                     })
      })
-   })
-  planetsCall()
-    .then(e => { let planets = cleanPlanetsData(e[0])
-    this.setState({planets: planets})
-  })
+    })
 
+    planetsCall()
+      .then(e => { let planets = cleanPlanetsData(e[0])
+      this.setState({planets: planets})
+    })
 
-
-  vehiclesCall()
-      .then(e => this.setState({vehicles: e[0]}))
-}
-
-
-
-
-
+    vehiclesCall()
+        .then(e => this.setState({vehicles: e[0]}))
+    }
 
   saveFavorites(name) {
 
@@ -73,8 +67,7 @@ export default class Main extends Component {
 
   renderCardGrid(){
     var dataSet = this.state.selectedButton
-    console.log(dataSet)
-    { if(!this.state.people.length){
+    { if(!this.state.people.length) {
       return (
         <div className="loading-msg">Loading!</div>
       )
