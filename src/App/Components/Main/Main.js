@@ -7,9 +7,8 @@ import { cleanPlanetsData } from '../../cleanPlanetsData'
 import peopleCall from '../PeopleCard/CallingPeople'
 import planetsCall from '../PlanetCard/CallingPlanets'
 import vehiclesCall from '../VehicleCard/CallingVehicles'
-// import peoplestub from '../../stubs/people-stub.js'
-// import planetstub from '../../stubs/planet-stub.js'
-// import vehiclestub from '../../stubs/vehicle-stub.js'
+import { cleanVehiclesData } from '../../cleanVehiclesData'
+
 
 
 export default class Main extends Component {
@@ -31,19 +30,19 @@ export default class Main extends Component {
 
     peopleCall()
     .then(e => {cleanPeopleData(e[0])
-    .then(call => {this.setState({
-                   people: call
-                    })
+    .then(call => {this.setState({people: call})
      })
     })
 
     planetsCall()
       .then(e => { let planets = cleanPlanetsData(e[0])
-      this.setState({planets: planets})
-    })
+                  this.setState({planets: planets})
+      })
 
     vehiclesCall()
-        .then(e => this.setState({vehicles: e[0]}))
+      .then(e => { let vehicles = cleanVehiclesData(e[0])
+                  this.setState({vehicles: vehicles})
+      })
     }
 
   saveFavorites(name) {
