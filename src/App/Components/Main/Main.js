@@ -85,8 +85,9 @@ export default class Main extends Component {
         <div className="main-main loading">
           <header>
             <h1>STAR WARS</h1>
+            <button className='fav-btn'
+                    counter={this.state.counter}>Favorites<span className="fav-counter">{this.state.counter}</span></button>
           </header>
-          <Button buttonType={'favorites'} counter={this.state.counter} onClick={this.toggleSelectCards.bind(this)}/>
           <Button buttonType={'people'} handleClick={this.toggleSelectCards.bind(this)}/>
           <Button buttonType={'planets'} handleClick={this.toggleSelectCards.bind(this)}/>
           <Button buttonType={'vehicles'} handleClick={this.toggleSelectCards.bind(this)}/>

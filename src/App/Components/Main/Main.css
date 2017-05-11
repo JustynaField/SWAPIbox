@@ -17,3 +17,13 @@ h1 {
   text-align: center;
   font-size: 40px;
 }
+
+@media screen and (max-width: 865px){
+  header {
+    height: 150px;
+  }
+
+  h1 {
+    padding-top: 60px
+  }
+}
