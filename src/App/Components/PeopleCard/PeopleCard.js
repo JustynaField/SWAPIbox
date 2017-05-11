@@ -2,7 +2,6 @@ import React from 'react'
 import './PeopleCard.css'
 
 export const PeopleCard = ({name, homeworld, species, population, handleFav}) => {
-  // console.log(handleFav)
   return (
     <div className='card people'>
       <h3>{name}</h3>
