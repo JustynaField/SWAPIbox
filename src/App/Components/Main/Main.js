@@ -52,10 +52,13 @@ export default class Main extends Component {
 
     if(place === -1) {
       temp.push(name)
+      this.setState({counter: this.state.counter + 1})
     } else {
       temp.splice(place, 1)
       this.setState({favorites: temp})
+      this.setState({counter: this.state.counter - 1})
     }
+    console.log(this.state.favorites)
   }
 
   toggleSelectCards(button) {
