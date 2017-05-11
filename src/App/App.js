@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Main from './Components/Main/Main'
 import { OpeningCrawl } from './Components/OpeningCrawl/OpeningCrawl'
-import { cleanCrawlData } from './cleanCrawlData'
+import { cleanCrawlData } from './Components/OpeningCrawl/cleanCrawlData'
 
 
 class App extends Component {
@@ -27,7 +27,6 @@ class App extends Component {
       openingCrawl: cleanCrawlData(crawlData)
     })
   }
-
 
   render() {
     return (
