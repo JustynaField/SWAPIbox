@@ -1,4 +1,4 @@
-{
+module.exports = {
     "count": 39,
     "next": "http://swapi.co/api/vehicles/?format=api&page=2",
     "previous": null,

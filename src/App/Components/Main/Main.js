@@ -23,7 +23,6 @@ export default class Main extends Component {
       errorMsg: '',
       favorites: []
     }
-    console.log(this.state.favorites)
   }
 
   componentDidMount() {

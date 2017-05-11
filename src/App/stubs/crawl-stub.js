@@ -46,13 +46,13 @@ vehicles: [
 "http://swapi.co/api/vehicles/7/",
 "http://swapi.co/api/vehicles/8/"
 ],
-species: [
-"http://swapi.co/api/species/5/",
-"http://swapi.co/api/species/3/",
-"http://swapi.co/api/species/2/",
-"http://swapi.co/api/species/1/",
-"http://swapi.co/api/species/4/"
-],
+// species: [
+// "http://swapi.co/api/species/5/",
+// "http://swapi.co/api/species/3/",
+// "http://swapi.co/api/species/2/",
+// "http://swapi.co/api/species/1/",
+// "http://swapi.co/api/species/4/"
+// ],
 created: "2014-12-10T14:23:31.880000Z",
 edited: "2015-04-11T09:46:52.774897Z",
 url: "http://swapi.co/api/films/1/"
