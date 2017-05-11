@@ -1,3 +1,17 @@
 import React from 'react'
-import { mount } from 'enzyme'
-import fetchMock from 'fetch-mock'
+import { shallow } from 'enzyme'
+import { OpeningCrawl } from './OpeningCrawl'
+import CrawlStub from '../../stubs/crawl-stub'
+import { cleanCrawlData } from '../../cleanCrawlData'
+
+describe('crawl', () => {
+  it('renders the crawl, title, and release date', () => {
+    const cleanedCrawl = cleanCrawlData(CrawlStub)
+
+    const wrapper = shallow(<OpeningCrawl crawlInfo={cleanedCrawl} />)
+
+    expect(wrapper.find('.crawl').text()).toEqual(cleanedCrawl.crawl)
+    expect(wrapper.find('.title').text()).toEqual("A New Hope")
+    expect(wrapper.find('.release').text()).toEqual("1977-05-25")
+  })
+})
