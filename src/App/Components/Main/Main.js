@@ -68,7 +68,7 @@ export default class Main extends Component {
     var dataSet = this.state.selectedButton
     { if(!this.state.people.length) {
       return (
-        <div className="loading-msg">Loading!</div>
+        <p className="loading-msg">Loading!</p>
       )
     } else {
       return (
