@@ -5,7 +5,7 @@ export const cleanPlanetsData = (data) => {
       accu[planet.name] = {}
       accu[planet.name].name = planet.name
       accu[planet.name].terrain = planet.terrain
-      accu[planet.name].populataion = planet.population
+      accu[planet.name].population = planet.population
       accu[planet.name].climate = planet.climate
       accu[planet.name].residents = []
 

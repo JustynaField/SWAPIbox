@@ -3,7 +3,7 @@ export const cleanVehiclesData = (data) => {
     return {
       name: vehicle.name,
       model: vehicle.model,
-      class: vehicle.class,
+      class: vehicle.vehicle_class,
       passengers: vehicle.passengers
     }
   })
