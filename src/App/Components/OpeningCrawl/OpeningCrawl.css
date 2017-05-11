@@ -16,15 +16,18 @@ p {
 
 .title {
   font-size: 14px;
-  font-weight: bold;
   letter-spacing: 0.1;
   margin: 0
 }
 
 
-@media screen and (max-width: 630px){
-  .crawl-main {
-
+@media screen and (max-width: 500px){
+  .crawl-main{
+    padding: 0;
+    width: 100%;
+    padding-bottom: 20px;
   }
-
+  .main-text {
+    padding: 30px;
+  }
 }

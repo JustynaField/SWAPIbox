@@ -18,6 +18,11 @@ h1 {
   font-size: 40px;
 }
 
+.loading-msg{
+  font-size: 25px;
+  font-family: georgia;
+}
+
 @media screen and (max-width: 865px){
   header {
     height: 150px;
@@ -25,5 +30,13 @@ h1 {
 
   h1 {
     padding-top: 60px
+  }
+}
+
+
+@media screen and (max-width: 500px){
+  .main-main{
+    width: 100%;
+    padding-bottom: 20px;
   }
 }
