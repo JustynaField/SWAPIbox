@@ -9,5 +9,9 @@ export const Button = ({buttonType, counter, handleClick}) => {
 
 
   return(
-    <button onClick={(e) => {callButton(e, buttonType)}}>{buttonType}<span className="fav-counter">{counter}</span></button>)
+    <div>
+      <button className="select-btn"
+        onClick={(e) => {callButton(e, buttonType)}}>{buttonType}<span className="fav-counter">{counter}</span></button>
+    </div>
+  )
 }

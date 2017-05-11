@@ -1,6 +1,22 @@
 .crawl-main {
   width: 25%;
-  background-color: pink;
+  background-color: #7d889a;
   color: black;
   display: inline-block;
+  margin: 0;
+  padding: 20px;
+}
+
+p {
+  letter-spacing: 0.15em;
+  line-height: 1.8em;
+  word-spacing: .2em;
+  text-align: center
+}
+
+.title {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.1;
+  margin: 0
 }

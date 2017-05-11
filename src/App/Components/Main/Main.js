@@ -13,11 +13,14 @@ export default class Main extends Component {
       selectedButton: 'people',
       dataSet: [],
       counter: 0,
-      errorMsg: ''
+      errorMsg: '',
+      favorites: []
     }
+    console.log(this.state.favorites)
   }
 
   componentDidMount() {
+
     this.fetchData()
   }
 
@@ -26,6 +29,21 @@ export default class Main extends Component {
   //     this.fetchData()
   //   }
   // }
+
+  saveFavorites(name) {
+
+    let temp = this.state.favorites;
+    let place = temp.indexOf(name)
+
+    if(place === -1) {
+      temp.push(name)
+    } else {
+      temp.splice(place, 1)
+      this.setState({favorites: temp})
+    }
+  }
+
+
 
   fetchData() {
     fetch(`http://swapi.co/api/${this.state.selectedButton}/`)
@@ -86,7 +104,10 @@ export default class Main extends Component {
         <Button buttonType={'people'} handleClick={this.toggleSelectCards.bind(this)}/>
         <Button buttonType={'planets'} handleClick={this.toggleSelectCards.bind(this)}/>
         <Button buttonType={'vehicles'} handleClick={this.toggleSelectCards.bind(this)}/>
-        <CardGrid dataSet={this.state.dataSet} cardType={this.state.selectedButton}/>
+        <CardGrid dataSet={this.state.dataSet}
+                  cardType={this.state.selectedButton}
+                  handleFavorites={this.saveFavorites.bind(this)}
+        />
       </div>
     )
   }

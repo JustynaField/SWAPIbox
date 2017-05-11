@@ -3,11 +3,13 @@ import { PeopleCard } from '../PeopleCard/PeopleCard'
 import { PlanetCard } from '../PlanetCard/PlanetCard'
 import { VehicleCard } from '../VehicleCard/VehicleCard'
 
-export const CardGrid = ({ dataSet, cardType }) => {
+export const CardGrid = ({ dataSet, cardType, handleFavorites }) => {
 
   if(cardType === 'people'){
     var cardArray = dataSet.map(card => {
-    return <PeopleCard name={card.name} homeworld={card.homeworld} species={card.species} population={card.population}/>
+    return <PeopleCard name={card.name} homeworld={card.homeworld} species={card.species} population={card.population}
+    handleFav={handleFavorites}
+    />
     })
   }
   if(cardType === 'vehicles'){
