@@ -21,11 +21,14 @@ export default class Main extends Component {
       planets: {},
       vehicles: [],
       counter: 0,
-      errorMsg: ''
+      errorMsg: '',
+      favorites: []
     }
+    console.log(this.state.favorites)
   }
 
   componentDidMount() {
+
     peopleCall()
     .then(e => {cleanPeopleData(e[0])
     .then(call => {this.setState({
@@ -48,6 +51,7 @@ export default class Main extends Component {
 }
 
 
+
     // planetScrubber().then(e => {
     //
     //   cleanPeopleData(e).then()
@@ -63,12 +67,29 @@ export default class Main extends Component {
   //   }
   // }
 
-  // fetchData() {
-  //   fetch(`http://swapi.co/api/${this.state.selectedButton}/`)
-  //     .then(response => response.json())
-  //     .then(data => {this.resetData(data)})
-  //     .catch((err) => console.log(err))
-  // }
+
+  saveFavorites(name) {
+
+    let temp = this.state.favorites;
+    let place = temp.indexOf(name)
+
+    if(place === -1) {
+      temp.push(name)
+    } else {
+      temp.splice(place, 1)
+      this.setState({favorites: temp})
+    }
+  }
+
+
+
+  fetchData() {
+    fetch(`http://swapi.co/api/${this.state.selectedButton}/`)
+      .then(response => response.json())
+      .then(data => {this.resetData(data)})
+      .catch((err) => console.log(err))
+  }
+
 
   // resetData(data) {
   //   if(this.state.selectedButton === 'people'){
@@ -120,7 +141,12 @@ export default class Main extends Component {
         <Button buttonType={'people'} handleClick={this.toggleSelectCards.bind(this)}/>
         <Button buttonType={'planets'} handleClick={this.toggleSelectCards.bind(this)}/>
         <Button buttonType={'vehicles'} handleClick={this.toggleSelectCards.bind(this)}/>
-        <CardGrid dataSet={this.state.vehicles} cardType={'vehicles'}/>
+
+        <CardGrid dataSet={this.state.dataSet}
+                  cardType={this.state.selectedButton}
+                  handleFavorites={this.saveFavorites.bind(this)}
+        />
+
       </div>
     )
   }

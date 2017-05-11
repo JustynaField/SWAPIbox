@@ -1,12 +1,13 @@
 .main-main {
   width: 75%;
-  background-color: purple;
+  background-color: #c0d8e0;
   color: white;
   display: inline-block;
+  margin: 0
 }
 
 header {
-  background-color: #9fa4b1;
+  background-color: #30394a;
   height: 120px;
 }
 
