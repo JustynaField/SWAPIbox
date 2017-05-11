@@ -13,11 +13,11 @@ describe('people cards', () => {
   })
 
   it('should render w/ a name, homeworld, species, population and a buttonfield', () => {
-    expect(wrapper.find('h3').text()).toEqual('Blarf')
-    expect(wrapper.find('h3').text()).toEqual('Blarf')
-    expect(wrapper.find('h3').text()).toEqual('Blarf')
-    expect(wrapper.find('h3').text()).toEqual('Blarf')
-    expect(wrapper.find('h3').text()).toEqual('Blarf')
+    expect(wrapper.find('.name-field').text()).toEqual('Blarf')
+    expect(wrapper.find('.homeworld-field').text()).toEqual('Homeworld: blarfland')
+    expect(wrapper.find('.species-field').text()).toEqual('Species: bloobleblarfs')
+    expect(wrapper.find('.population-field').text()).toEqual('Population: 2')
+    expect(wrapper.find('button').length).toBe(1)
 
   })
 
