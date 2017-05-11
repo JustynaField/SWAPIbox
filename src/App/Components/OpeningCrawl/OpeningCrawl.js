@@ -6,9 +6,9 @@ export const OpeningCrawl = ({crawlInfo}) => {
 
   return (
     <div className="crawl-main">
-      <p>{crawlInfo.crawl}</p>
-      <p>{crawlInfo.title}</p>
-      <p>{crawlInfo.release}</p>
+      <p className="crawl">{crawlInfo.crawl}</p>
+      <p className="title">{crawlInfo.title}</p>
+      <p className="release">{crawlInfo.release}</p>
     </div>
   )
 }

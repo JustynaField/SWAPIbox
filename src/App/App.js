@@ -14,9 +14,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const openingCrawl = new Request('http://swapi.co/api/films/1/?format=json')
 
-    fetch(openingCrawl)
+    fetch('http://swapi.co/api/films/1/?format=json')
       .then(response => response.json())
       .then(j => {
         this.resetCrawl(j)
