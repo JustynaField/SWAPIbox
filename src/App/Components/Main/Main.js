@@ -4,8 +4,9 @@ import { Button } from '../Button/Button'
 import { CardGrid } from '../CardGrid/CardGrid'
 import { cleanPeopleData } from '../../cleanPeopleData'
 import { cleanPlanetsData } from '../../cleanPlanetsData'
-import { cleanVehiclesData } from '../../cleanVehiclesData'
-import peopleScrubber from '../PeopleCard/CallingPeople'
+import peopleCall from '../PeopleCard/CallingPeople'
+import planetsCall from '../PlanetCard/CallingPlanets'
+import vehiclesCall from '../VehicleCard/CallingVehicles'
 // import peoplestub from '../../stubs/people-stub.js'
 // import planetstub from '../../stubs/planet-stub.js'
 // import vehiclestub from '../../stubs/vehicle-stub.js'
@@ -16,23 +17,41 @@ export default class Main extends Component {
     super()
     this.state = {
       selectedButton: 'people',
-      dataSet: [],
+      people: [],
+      planets: {},
+      vehicles: [],
       counter: 0,
       errorMsg: ''
     }
   }
 
   componentDidMount() {
-    peopleScrubber().then(e => {
-
-      cleanPeopleData(e[0]).then(call => {
-      console.log(call)
+    peopleCall()
+    .then(e => {cleanPeopleData(e[0])
+    .then(call => {this.setState({
+                   people: call
+                    })
     })
   })
-    this.fetchData()
-  }
+  planetsCall()
+    .then(e => {console.log(e[0]);cleanPlanetsData(e[0])
+    .then(call => { console.log(call);this.setState({
+                  planets: call
+                  })
+    })
+    })
+  vehiclesCall()
+      .then(e => this.setState({vehicles: e[0]}))
 
 
+
+}
+
+
+    // planetScrubber().then(e => {
+    //
+    //   cleanPeopleData(e).then()
+    // })
   // componentDidUpdate(prevState) {
   //   if (prevState.selectedButton !== this.state.selectedButton){
   //     this.fetchData()
@@ -44,43 +63,40 @@ export default class Main extends Component {
   //   }
   // }
 
-  fetchData() {
-    fetch(`http://swapi.co/api/${this.state.selectedButton}/`)
-      .then(response => response.json())
-      .then(data => {this.resetData(data)})
-      .catch((err) => console.log(err))
-  }
+  // fetchData() {
+  //   fetch(`http://swapi.co/api/${this.state.selectedButton}/`)
+  //     .then(response => response.json())
+  //     .then(data => {this.resetData(data)})
+  //     .catch((err) => console.log(err))
+  // }
 
-  resetData(data) {
-    if(this.state.selectedButton === 'people'){
-     cleanPeopleData(data)
-      .then((returnedData) => this.setState({ dataSet: returnedData }))
-      .catch(() => {console.log('drats!')})
-    }
-    if(this.state.selectedButton === 'planets'){
-      console.log("hello! cliked")
-     cleanPlanetsData(data)
-       .then((returnedData) => this.setState({ dataSet: returnedData }))
-       .catch(() => {console.log('shucks!')})
-    }
-    if(this.state.selectedButton === 'vehicles'){
-      cleanVehiclesData(data)
-    //  this.setState({ dataSet: cleanVehiclesData(data) })
-      .then((returnedData) => this.setState({dataSet: returnedData }))
-      .catch((err) => {console.log('bummer!')})
-    }
-  }
+  // resetData(data) {
+  //   if(this.state.selectedButton === 'people'){
+  //   cleanPeopleData(data)
+  //     .then((returnedData) => this.setState({ dataSet: returnedData }))
+  //     .catch(() => {console.log('drats!')})
+  //   }
+  //   if(this.state.selectedButton === 'planets'){
+  //     console.log("hello! cliked")
+  //    cleanPlanetsData(data)
+  //      .then((returnedData) => this.setState({ dataSet: returnedData }))
+  //      .catch(() => {console.log('shucks!')})
+  //   }
+  //   if(this.state.selectedButton === 'vehicles'){
+  //     cleanVehiclesData(data)
+  //   //  this.setState({ dataSet: cleanVehiclesData(data) })
+  //     .then((returnedData) => this.setState({dataSet: returnedData }))
+  //     .catch((err) => {console.log('bummer!')})
+  //   }
+  // }
 
 
 
   toggleSelectCards(button) {
-    this.setState({selectedButton: button})
-    // .then(() => {return this.fetchData()})
-    // this.fetchData()
   }
 
   render() {
-    if(!this.state.dataSet.length){
+    if(!this.state.people.length){
       return (
         <div className="main-main loading">
           <header>
@@ -104,7 +120,7 @@ export default class Main extends Component {
         <Button buttonType={'people'} handleClick={this.toggleSelectCards.bind(this)}/>
         <Button buttonType={'planets'} handleClick={this.toggleSelectCards.bind(this)}/>
         <Button buttonType={'vehicles'} handleClick={this.toggleSelectCards.bind(this)}/>
-        <CardGrid dataSet={this.state.dataSet} cardType={this.state.selectedButton}/>
+        <CardGrid dataSet={this.state.vehicles} cardType={'vehicles'}/>
       </div>
     )
   }
