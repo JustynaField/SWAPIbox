@@ -1,5 +1,4 @@
 export const cleanPlanetsData = (data) => {
-
    return data.results.reduce((accu, planet) => {
     if(!accu[planet.name]){
       accu[planet.name] = {}
