@@ -2,6 +2,8 @@ import React from 'react'
 import { PeopleCard } from '../PeopleCard/PeopleCard'
 import { PlanetCard } from '../PlanetCard/PlanetCard'
 import { VehicleCard } from '../VehicleCard/VehicleCard'
+import { cleanVehiclesData } from '../../cleanVehiclesData'
+
 
 export const CardGrid = ({ dataSet, cardType, handleFavorites }) => {
 
@@ -13,7 +15,8 @@ export const CardGrid = ({ dataSet, cardType, handleFavorites }) => {
     })
   }
   if(cardType === 'vehicles'){
-    cardArray = dataSet.map(card => {
+    const cleanedData = cleanVehiclesData(dataSet)
+    cardArray = cleanedData.map(card => {
       return <VehicleCard name={card.name} classType={card.class} model={card.model} class={card.class} passengers={card.passengers} />
     })
   }
