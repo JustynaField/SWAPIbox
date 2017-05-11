@@ -34,7 +34,6 @@ class App extends Component {
       <div className="App">
         <OpeningCrawl  crawlInfo={this.state.openingCrawl}/>
         <Main />
-
       </div>
     );
   }
