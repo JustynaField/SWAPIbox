@@ -1,7 +1,6 @@
 import React from 'react'
 
 export const PlanetCard = ({name, terrain, population, climate, residents, handleFav, favorites}) => {
-  console.log(favorites)
 
   let test = (e) => {
     let allData = {
