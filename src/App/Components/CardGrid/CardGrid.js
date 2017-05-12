@@ -37,3 +37,12 @@ export const CardGrid = ({ dataSet, cardType, handleFavorites, favorites }) => {
     </section>
   )
 }
+
+
+// CardGrid.propTypes = {
+//   dataSet
+//   cardType
+//   handleFavorites,
+//   favorites
+
+// }
