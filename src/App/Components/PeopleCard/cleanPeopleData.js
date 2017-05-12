@@ -2,17 +2,6 @@
 
 export const cleanPeopleData = (data) => {
 
-  // const finalCleanData = (rawDataArray) => {
-  //   return rawDataArray.map((character) => {
-  //       return {
-  //         name: character.name,
-  //         homeworld: character.homeworld,
-  //         species: character.species,
-  //         population: character.population,
-  //       }
-  //     })
-  // }
-
   const speciesData = (speciesData) => {
     return fetch(speciesData)
     .then(response => response.json())
