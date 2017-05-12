@@ -59,5 +59,4 @@ export const mockFetchCalls = () => {
     status: 200,
     body: IndivPeopleStub
   })
-
 }
