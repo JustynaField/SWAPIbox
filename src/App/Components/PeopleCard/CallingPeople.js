@@ -10,7 +10,7 @@ const peopleCall = () => {
   return Promise.all([p1, p2]).then((callback) => {
     return callback
   })
-  .catch((error) => {console.log('people error'), error})
+  .catch((error) => {error})
 }
 
 

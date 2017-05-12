@@ -6,7 +6,7 @@ export const DisplayFavorites = ({favorites}) => {
     const cards = favorites.map((card, index) => {
       if(card.species) {
         return (
-          <div className={favorites.includes(name) ? 'card people favored' : 'card people'}>
+          <div className={favorites.includes(name) ? 'card people favored' : 'card people'} key={index}>
             <h3 className="name-field">{card.name}</h3>
             <h5 className="homeworld-field">Homeworld: {card.homeworld}</h5>
             <h5 className="species-field">Species: {card.species}</h5>
@@ -15,7 +15,7 @@ export const DisplayFavorites = ({favorites}) => {
         )
       } else if (card.residents) {
         return (
-          <div className={favorites.includes(name) ? 'card planet favored' : 'card planet'}>
+          <div className={favorites.includes(name) ? 'card planet favored' : 'card planet'} key={index}>
             <h3 className="name-field">{card.name}</h3>
             <h5 className="terrain-field">Terrain: {card.terrain}</h5>
             <h5 className="population-field">Population: {card.population}</h5>
