@@ -2,7 +2,7 @@ import React from 'react'
 import './Button.css'
 import PropTypes from 'prop-types'
 
-export const Button = ({buttonType, counter, handleClick}) => {
+export const Button = ({buttonType, handleClick}) => {
 
   const callButton = (e, button) => {
     handleClick(button)
@@ -12,7 +12,7 @@ export const Button = ({buttonType, counter, handleClick}) => {
   return(
     <div>
       <button className="select-btn"
-        onClick={(e) => {callButton(e, buttonType)}}>{buttonType}<span className="fav-counter">{counter}</span></button>
+        onClick={(e) => {callButton(e, buttonType)}}>{buttonType}</button>
     </div>
   )
 }
@@ -20,6 +20,5 @@ export const Button = ({buttonType, counter, handleClick}) => {
 
 Button.propTypes = {
   Button: PropTypes.string,
-  counter: PropTypes.number,
   handleClick: PropTypes.func
 }
