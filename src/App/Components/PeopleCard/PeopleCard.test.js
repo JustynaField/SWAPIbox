@@ -5,7 +5,7 @@ import { PeopleCard } from './PeopleCard'
 describe('people cards', () => {
   let wrapper
   beforeEach(() => {
-    wrapper = shallow(<PeopleCard name={'Blarf'} homeworld={'blarfland'} species={'bloobleblarfs'} population={2}/>)
+    wrapper = shallow(<PeopleCard name={'Blarf'} homeworld={'blarfland'} species={'bloobleblarfs'} population={2} favorites={[]} />)
   })
 
   it('should render a card', () => {
