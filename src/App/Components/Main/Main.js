@@ -8,7 +8,7 @@ import peopleCall from '../PeopleCard/CallingPeople'
 import planetsCall from '../PlanetCard/CallingPlanets'
 import vehiclesCall from '../VehicleCard/CallingVehicles'
 import { cleanVehiclesData } from '../VehicleCard/cleanVehiclesData'
-
+import { DisplayFavorites } from '../DisplayFavorites/DisplayFavorites'
 
 
 export default class Main extends Component {
@@ -21,7 +21,8 @@ export default class Main extends Component {
       vehicles: [],
       counter: 0,
       errorMsg: '',
-      favorites: []
+      favorites: [],
+      showFavorites: false
     }
   }
 
@@ -45,9 +46,12 @@ export default class Main extends Component {
     }
 
   saveFavorites(name, e) {
-
-    let temp = this.state.favorites;
-    let place = temp.indexOf(name)
+    let temp = this.state.favorites
+    let tempArr = this.state.favorites.map(obj => {
+      return obj.name
+    })
+    let place = tempArr.indexOf(name.name)
+console.log(name)
 
     if(place === -1) {
       temp.push(name)
@@ -58,13 +62,6 @@ export default class Main extends Component {
       this.setState({counter: this.state.counter - 1})
     }
 
-
-
-    // if(e.currentTarget.className === 'like-btn favored') {
-    //   e.currentTarget.className = 'like-btn'
-    // } else {
-    //   e.currentTarget.className = 'like-btn favored'
-    // }
     console.log(this.state.favorites)
   }
 
@@ -73,6 +70,23 @@ export default class Main extends Component {
     this.setState({
                   selectedButton : button,
                   })
+  }
+
+
+  displayFavorites() {
+    this.setState({showFavorites: !this.state.showFavorites})
+  }
+
+  displayCards() {
+    if(this.state.showFavorites) {
+      return (
+        <DisplayFavorites favorites={this.state.favorites}/>
+      )
+    } else {
+      return (
+        this.renderCardGrid()
+      )
+    }
   }
 
   renderCardGrid(){
@@ -97,12 +111,18 @@ export default class Main extends Component {
           <header>
             <h1>STAR WARS</h1>
             <button className='fav-btn'
-                    counter={this.state.counter}>Favorites<span className="fav-counter">{this.state.counter}</span></button>
+                    counter={this.state.counter}
+                    onClick={() => this.displayFavorites() }
+                    >
+                    Favorites
+                    <span className="fav-counter">{this.state.counter}</span>
+            </button>
           </header>
-          <Button buttonType={'people'} handleClick={this.toggleSelectCards.bind(this)} counter={this.state.counter}/>
-          <Button buttonType={'planets'} handleClick={this.toggleSelectCards.bind(this)} counter={this.state.counter}/>
-          <Button buttonType={'vehicles'} handleClick={this.toggleSelectCards.bind(this)} counter={this.state.counter}/>
-          {this.renderCardGrid()}
+
+          <Button buttonType={'people'} handleClick={this.toggleSelectCards.bind(this)}/>
+          <Button buttonType={'planets'} handleClick={this.toggleSelectCards.bind(this)}/>
+          <Button buttonType={'vehicles'} handleClick={this.toggleSelectCards.bind(this)}/>
+          {this.displayCards()}
 
         </div>
       )

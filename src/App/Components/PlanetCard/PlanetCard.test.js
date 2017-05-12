@@ -5,7 +5,7 @@ import { PlanetCard } from './PlanetCard'
 describe('planet cards', () => {
   let wrapper
   beforeEach(() => {
-    wrapper = shallow(<PlanetCard name={'Blarf'} terrain={'blarfland'} climate={'bloobleblarfs'} population={2} residents={'bob, jane, steve'}/>)
+    wrapper = shallow(<PlanetCard name={'Blarf'} terrain={'blarfland'} climate={'bloobleblarfs'} population={2} residents={'bob, jane, steve'} favorites={[]}/>)
   })
 
   it('should render a card', () => {
