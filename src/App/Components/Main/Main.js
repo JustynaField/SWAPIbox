@@ -118,6 +118,7 @@ console.log(name)
                     <span className="fav-counter">{this.state.counter}</span>
             </button>
           </header>
+
           <Button buttonType={'people'} handleClick={this.toggleSelectCards.bind(this)}/>
           <Button buttonType={'planets'} handleClick={this.toggleSelectCards.bind(this)}/>
           <Button buttonType={'vehicles'} handleClick={this.toggleSelectCards.bind(this)}/>

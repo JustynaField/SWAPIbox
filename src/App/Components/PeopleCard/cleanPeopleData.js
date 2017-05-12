@@ -17,18 +17,21 @@ export const cleanPeopleData = (data) => {
     return fetch(speciesData)
     .then(response => response.json())
     .then(data => {return data.name})
+    .catch((error) => {console.log('species name error', error)})
   }
 
   const homeworldPopulation = (speciesData) => {
     return fetch(speciesData)
     .then(response => response.json())
     .then(data => {return data.population})
+    .catch((error) => {console.log('species pop error', error)})
   }
 
   const speciesHomeworld = (speciesData) => {
     return fetch(speciesData)
     .then(response => response.json())
     .then(data => {return data.name})
+    .catch((error) => {console.log('species homeworld error', error)})
   }
 
   const speciesArray = data.results.map(person => {

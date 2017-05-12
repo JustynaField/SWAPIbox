@@ -1,6 +1,9 @@
 import PeopleStub from './people-stub'
 import PlanetStub from './planet-stub'
 import VehicleStub from './vehicle-stub'
+import SpeciesStub from './indiv-species-stub'
+import IndivPlanetStub from './indiv-planet-stub'
+import IndivPeopleStub from './indiv-people-stub'
 import fetchMock from 'fetch-mock';
 
 // expect(fetchMock.calls().unmatched).toEqual([]);
@@ -14,46 +17,47 @@ export const resolveAfter2Seconds = () => {
         }, 2000)
       })
     }
-// export const mockFetchCalls = () => {
-//   fetchMock.get('begin:http://swapi.co/', {
-//     status: 200,
-//     body: []
-//   })
-// }
+
 export const mockFetchCalls = () => {
   //people
-  fetchMock.get('begin:http://swapi.co/api/people/', {
+  fetchMock.get('begin:http://swapi.co/api/people/?page', {
     status: 200,
     body: PeopleStub
   })
 
-  fetchMock.get('http://swapi.co/api/planets/?page=1', {
+  fetchMock.get('begin:http://swapi.co/api/planets/?page', {
     status: 200,
     body: PlanetStub
   })
 
-  fetchMock.get('http://swapi.co/api/planets/?page=2', {
-    status: 200,
-    body: PlanetStub
-  })
-
-  fetchMock.get('http://swapi.co/api/vehicles/?page=1', {
+  fetchMock.get('begin:http://swapi.co/api/vehicles/?page', {
     status: 200,
     body: VehicleStub
   })
 
-  fetchMock.get('http://swapi.co/api/vehicles/?page=2', {
+  fetchMock.get('begin:http://swapi.co/api/species/', {
     status: 200,
-    body: VehicleStub
+    body: SpeciesStub
   })
 
-  fetchMock.get('http://swapi.co/api/vehicles/?page=3', {
+  fetchMock.get('begin:http://swapi.co/api/species/1/', {
     status: 200,
-    body: VehicleStub
+    body: SpeciesStub
   })
 
-  fetchMock.get('http://swapi.co/api/vehicles/?page=4', {
+  fetchMock.get('begin:http://swapi.co/api/species/2/', {
     status: 200,
-    body: VehicleStub
+    body: SpeciesStub
   })
+
+  fetchMock.get('begin:http://swapi.co/api/planets/', {
+    status: 200,
+    body: IndivPlanetStub
+  })
+
+  fetchMock.get('begin:http://swapi.co/api/people/', {
+    status: 200,
+    body: IndivPeopleStub
+  })
+
 }
