@@ -60,6 +60,7 @@ export default class Main extends Component {
       this.setState({favorites: temp})
       this.setState({counter: this.state.counter - 1})
     }
+
   }
 
 

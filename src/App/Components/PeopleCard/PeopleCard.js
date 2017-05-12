@@ -1,8 +1,8 @@
 import React from 'react'
 import './PeopleCard.css'
+import PropTypes from 'prop-types'
 
 export const PeopleCard = ({name, homeworld, species, population, handleFav, favorites}) => {
-
   let test = (e) => {
     let allData = {
       name: name,
@@ -28,4 +28,13 @@ export const PeopleCard = ({name, homeworld, species, population, handleFav, fav
       >Favorite</button>
     </div>
   )
+}
+
+PeopleCard.propTypes = {
+  name: PropTypes.string,
+  homeworld: PropTypes.string,
+  species: PropTypes.string,
+  population: PropTypes.number,
+  handleFav: PropTypes.func,
+  favorites: PropTypes.array
 }

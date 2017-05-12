@@ -8,7 +8,6 @@ export const Button = ({buttonType, handleClick}) => {
     handleClick(button)
   }
 
-
   return(
     <div>
       <button className="select-btn"
@@ -16,7 +15,6 @@ export const Button = ({buttonType, handleClick}) => {
     </div>
   )
 }
-
 
 Button.propTypes = {
   Button: PropTypes.string,

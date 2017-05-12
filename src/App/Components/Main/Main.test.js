@@ -114,13 +114,4 @@ describe('App', () => {
     expect(wrapper.state('showFavorites')).toEqual(true)
   })
 
-
 })
-
-
-
-//blocks for people
-
-//blocks for planets
-
-//blocks for vehicles

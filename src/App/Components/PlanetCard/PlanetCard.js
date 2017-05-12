@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export const PlanetCard = ({name, terrain, population, climate, residents, handleFav, favorites}) => {
 
@@ -27,8 +28,16 @@ export const PlanetCard = ({name, terrain, population, climate, residents, handl
       <button className="like-btn"
               onClick={(e)=>{test(e)}}
         >Favorite</button>
-
-
     </div>
   )
+}
+
+PlanetCard.propTypes = {
+  name: PropTypes.string,
+  terrain: PropTypes.string,
+  population: PropTypes.number,
+  climate: PropTypes.string,
+  residents: PropTypes.string,
+  handleFav: PropTypes.func,
+  favorites: PropTypes.array
 }

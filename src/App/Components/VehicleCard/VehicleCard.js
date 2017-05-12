@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export const VehicleCard = ({name, model, classType, passengers}) => {
   return (
@@ -9,4 +10,11 @@ export const VehicleCard = ({name, model, classType, passengers}) => {
       <h5 className="passenger-field">Passenger Count: {passengers}</h5>
     </div>
   )
+}
+
+VehicleCard.propTypes = {
+  name: PropTypes.string,
+  model: PropTypes.string,
+  classType: PropTypes.string,
+  passengers: PropTypes.number
 }
