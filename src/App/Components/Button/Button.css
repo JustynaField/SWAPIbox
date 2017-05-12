@@ -14,7 +14,7 @@
 }
 
 .fav-btn:hover {
-  background-color: #75afab;
+  background-color: #eae5d3;
 }
 
 .fav-counter {
@@ -31,7 +31,7 @@ div {
 
 .select-btn {
   background-color: #9ca6ba;
-  border: solid 2px #999ca3;
+  border: solid 2px #9ca6ba;
   border-radius: 10px;
   height: 30px;
   width: 90px;

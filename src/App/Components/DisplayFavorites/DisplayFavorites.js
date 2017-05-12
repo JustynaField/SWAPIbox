@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export const DisplayFavorites = ({favorites}) => {
   if (favorites) {
@@ -21,17 +22,17 @@ export const DisplayFavorites = ({favorites}) => {
             <h5 className="climate-field">Climate: {card.climate}</h5>
             <h5 className="residents-field">Residents: {card.residents}</h5>
           </div>
-
         )
       }
-
     })
     return (
-
       <div>
       {cards}
       </div>
     )
   }
+}
 
+DisplayFavorites.propTypes = {
+  favorites: PropTypes.array
 }
