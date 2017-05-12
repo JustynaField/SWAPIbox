@@ -15,6 +15,5 @@ export const VehicleCard = ({name, model, classType, passengers}) => {
 VehicleCard.propTypes = {
   name: PropTypes.string,
   model: PropTypes.string,
-  classType: PropTypes.string,
-  passengers: PropTypes.number
+  classType: PropTypes.string
 }

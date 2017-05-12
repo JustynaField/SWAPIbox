@@ -60,16 +60,13 @@ export default class Main extends Component {
       this.setState({favorites: temp})
       this.setState({counter: this.state.counter - 1})
     }
-
   }
-
 
   toggleSelectCards(button) {
     this.setState({
                   selectedButton : button,
                   })
   }
-
 
   displayFavorites() {
     this.setState({showFavorites: !this.state.showFavorites})
@@ -109,7 +106,6 @@ export default class Main extends Component {
           <header>
             <h1>STAR WARS</h1>
             <button className='fav-btn'
-                    counter={this.state.counter}
                     onClick={() => this.displayFavorites() }
                     >
                     Favorites

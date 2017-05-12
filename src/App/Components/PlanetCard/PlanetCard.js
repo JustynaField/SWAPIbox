@@ -35,9 +35,7 @@ export const PlanetCard = ({name, terrain, population, climate, residents, handl
 PlanetCard.propTypes = {
   name: PropTypes.string,
   terrain: PropTypes.string,
-  population: PropTypes.number,
   climate: PropTypes.string,
-  residents: PropTypes.string,
   handleFav: PropTypes.func,
   favorites: PropTypes.array
 }

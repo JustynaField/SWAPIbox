@@ -34,7 +34,7 @@ PeopleCard.propTypes = {
   name: PropTypes.string,
   homeworld: PropTypes.string,
   species: PropTypes.string,
-  population: PropTypes.number,
+  population: PropTypes.string,
   handleFav: PropTypes.func,
   favorites: PropTypes.array
 }
