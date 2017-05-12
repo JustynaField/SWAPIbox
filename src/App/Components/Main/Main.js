@@ -51,7 +51,6 @@ export default class Main extends Component {
       return obj.name
     })
     let place = tempArr.indexOf(name.name)
-console.log(name)
 
     if(place === -1) {
       temp.push(name)
@@ -62,7 +61,7 @@ console.log(name)
       this.setState({counter: this.state.counter - 1})
     }
 
-    console.log(this.state.favorites)
+    // console.log(this.state.favorites)
   }
 
 

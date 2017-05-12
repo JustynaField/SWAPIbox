@@ -1,5 +1,6 @@
 import React from 'react'
 import './OpeningCrawl.css'
+import PropTypes from 'prop-types'
 
 export const OpeningCrawl = ({crawlInfo}) => {
 
@@ -10,4 +11,8 @@ export const OpeningCrawl = ({crawlInfo}) => {
       <p className="title release">{crawlInfo.release}</p>
     </div>
   )
+}
+
+OpeningCrawl.propTypes = {
+  crawlInfo: PropTypes.object
 }

@@ -19,7 +19,6 @@ describe('planet cards', () => {
     expect(wrapper.find('.population-field').text()).toEqual('Population: 2')
     expect(wrapper.find('.residents-field').text()).toEqual('Residents: bob, jane, steve')
     expect(wrapper.find('button').length).toBe(1)
-
   })
 
 })

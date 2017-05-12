@@ -34,6 +34,8 @@ describe('App', () => {
     expect(wrapper.find('.card .planet').length).toBe(10)
   })
 
+
+
 })
 
 
