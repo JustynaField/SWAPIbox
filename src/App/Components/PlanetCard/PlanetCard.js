@@ -14,8 +14,12 @@ export const PlanetCard = ({name, terrain, population, climate, residents, handl
     handleFav(allData, e)
   }
 
+  let favArray = favorites.map(obj => {
+    return obj.name
+  })
+
   return (
-    <div className={favorites.includes(name) ? 'card planet favored' : 'card planet'}>
+    <div className={favArray.includes(name) ? 'card planet favored' : 'card planet'}>
       <h3 className="name-field">{name}</h3>
       <h5 className="terrain-field">Terrain: {terrain}</h5>
       <h5 className="population-field">Population: {population}</h5>
